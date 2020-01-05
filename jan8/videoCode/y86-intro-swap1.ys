@@ -1,0 +1,10 @@
+# Initialize registers
+irmovq	0xFACE, %rax
+irmovq	0xCAFE, %rbx
+
+# Swap values
+rrmovq	%rax, %rcx
+rrmovq	%rbx, %rax
+rrmovq	%rcx, %rax
+
+halt

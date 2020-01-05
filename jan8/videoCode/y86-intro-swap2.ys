@@ -1,0 +1,16 @@
+# Load data from memory
+irmovq  a, %r11
+mrmovq	0(%r11), %rax
+mrmovq	8(%r11), %rbx
+
+# Write values back to opposite locations
+rmmovq	%rax, 8(%r11)
+rmmovq	%rbx, 0(%r11)
+
+# Store 
+
+halt
+
+.pos 0x100
+a:	.quad 0xFACE
+b:	.quad 0xCAFE

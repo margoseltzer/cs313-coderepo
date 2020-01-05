@@ -1,0 +1,24 @@
+# Let's initialize some registers
+irmovq	0x1, %rax
+irmovq	0x2, %rbx
+
+#
+addq	%rax, %rbx	# rbx = 3
+subq	%rax, %rbx	# rbx = 2
+subq	%rbx, %rax	# rax = -1 (SF, CF)
+xorq	%rax, %rax	# Quick way of zeroing out a register! (ZF)
+			# Why is this better than irmovq 0x0, %rax?
+xorq	%rax, %rax	# Still 0, but what about CC? (ZF)
+subq	%rbx, %rax	# rax = 0xFFFF...E (-2) (SF, CF)
+andq	%rax, %rax	# rax = unchanged:  (SF)
+
+addq	%rax, %rax	# rax = 0xFFF...C (-4) (CF, SF) **
+addq	%rax, %rbx	# rbx = -2 (SF) **
+addq	%rbx, %rax	# rax = -6 (CF, SF)
+
+irmovq	0x1, %rax	# rax = 1
+irmovq	0xFFFFFFFFFFFFFFFE, %rbx	# rbx = -2
+addq	%rbx, %rax 	# rax = -1 (SF)
+irmovq	0x2, %rax	# rax = 0
+addq	%rax, %rbx 	# rbx = 0 (ZF, CF)
+halt

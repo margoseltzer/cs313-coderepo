@@ -1,0 +1,19 @@
+#Initialize Stack
+irmovq  0x2000, %rsp
+
+# Initialize registers
+irmovq	0xA0C0, %rdi
+irmovq	0x0B0D, %rsi
+call     0x1000
+call     sum
+halt
+
+# Compute rsi+rdi and
+# return in rax
+.pos 0x1000
+sum:   
+xorq     %rax, %rax
+addq     %rdi, %rax
+addq     %rsi, %rax
+ret
+

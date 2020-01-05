@@ -1,0 +1,11 @@
+#Initialize the stack
+irmovq	0x2000, %rsp
+
+#Initialize rax and rbx
+irmovq 0x1234, %rax
+irmovq 0xCAFE, %rbx
+
+#Now, do the swap
+pushq %rax
+rrmovq %rbx, %rax
+popq %rbx
