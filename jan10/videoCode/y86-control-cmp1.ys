@@ -1,21 +1,23 @@
 # Using the conditional jump instructions
 # to compare two numbers.
+# Let's always operate on our 'parameters'
+# in registers rsi and rdi
 irmovq 0xff, %rsi
 irmovq 0x1, %rdi
 
 # rax = rsi > rdi ? 1 : 0
 	irmovq 1, %rax
 	rrmovq %rsi, %r10
-	subq %rdi, %rsi
+	subq %rdi, %r10
 # if result should be 1, we're all set
 	jg l1
 	irmovq 0, %rax
 
 # rax = rsi  == rdi ? 1 : 0
-l1:
+l1:	
 	irmovq 1, %rax
 	rrmovq %rsi, %r10
-	subq %rdi, %rsi
+	subq %rdi, %r10
 # if result should be 1, we're all set
 	je l2
 	irmovq 0, %rax
@@ -23,7 +25,7 @@ l1:
 # rax = rsi >= 0
 l2:
 	irmovq 1, %rax
-	andq %rsi, %rsi
+	andq %r10, %r10
 # if result should be 1, we're all set
 	jge l3
 	irmovq 0, %rax
