@@ -1,0 +1,17 @@
+#From slide 13
+# Initialize some values
+irmovq	0x0, %r8
+irmovq	0x2, %r9
+irmovq	-2, %r10
+
+# Try the practice problems and reinitialize for each
+addq %r8, %r9
+
+irmovq	0x2, %r9
+addq %r9, %r10
+
+irmovq	-2, %r10
+subq %r10, %r9
+
+irmovq	0x2, %r9
+subq %r9, %r10
