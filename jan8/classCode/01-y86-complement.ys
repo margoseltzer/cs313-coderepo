@@ -1,0 +1,4 @@
+rrmovq	%rax, %rax	# rax = 0
+irmovq	0x5, %rbx	# rbx = 5
+
+subq	%rbx, %rax	#rax = 0 - 5

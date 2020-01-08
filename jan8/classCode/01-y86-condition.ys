@@ -9,7 +9,7 @@ irmovq	0x7555555555555555, %r12
 # AND operations; we'll use r13 as 
 # our destination register
 rrmovq	%r8, %r13
-andq	%r9, %r13	# no flags
+andq	%r12, %r13	# no flags
 
 # What if we and %r8 with itself?
 rrmovq	%r8, %r13
