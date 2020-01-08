@@ -13,11 +13,11 @@ irmovq 0x1, %r11	# to make result 1
 # rax = rsi  == rdi ? 1 : 0
 	irmovq 0, %rax
 	rrmovq %rsi, %r10
-	subq %rdi, %rsi
+	subq %rdi, %r10
 	cmove %r11, %rax
 
 # rax = rsi >= 0
-	andq %rax, %rax
+	andq %r10, %r10
 # if result should be 1, we're all set
 	cmovge %r11, %rax
 

@@ -1,0 +1,35 @@
+# Let's set up a bunch of constant values to play with
+irmovq	0xFFFFFFFFFFFFFFFF, %r8
+irmovq	0xEFFFFFFFFFFFFFFF, %r9
+irmovq	0x0AAAAAAAAAAAAAAA, %r10
+irmovq	0x8AAAAAAAAAAAAAAA, %r11
+irmovq	0x7555555555555555, %r12
+
+# Let's see what happens with
+# AND operations; we'll use r13 as 
+# our destination register
+rrmovq	%r8, %r13
+andq	%r9, %r13	# no flags
+
+# What if we and %r8 with itself?
+rrmovq	%r8, %r13
+andq	%r13, %r13	# SF
+
+# And now, what if we xor it with itself?
+rrmovq	%r8, %r13
+xorq	%r13, %r13	# ZF
+
+# What do we get if we xor r11 and r13?
+rrmovq	%r11, %r13
+xorq	%r12, %r13	# SF
+
+# Does it matter if we change the order 
+# in which we do it?
+rrmovq	%r12, %r13
+xorq	%r11, %r13	# SF
+
+# And what if we AND them?
+rrmovq	%r12, %r13
+andq	%r11, %r13	# ZF
+
+halt

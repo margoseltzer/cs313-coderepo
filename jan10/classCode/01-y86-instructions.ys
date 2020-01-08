@@ -1,0 +1,8 @@
+irmovq 1, %rax
+irmovq a, %rbx
+mrmovq 0(%rbx), %rbx
+addq %rax, %rbx
+jmp 0x1E
+
+.pos	0x100
+a:	.quad 0xDEADBEEF
