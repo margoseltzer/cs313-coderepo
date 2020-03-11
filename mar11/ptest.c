@@ -6,7 +6,7 @@
 #include <unistd.h>
 
 #define BUFSIZE 1024
-#define NUMITER 100
+#define NUMITER 10
 
 int
 main(int argc, char *argv[]) {
@@ -29,7 +29,8 @@ main(int argc, char *argv[]) {
 			fprintf(stderr, "Short read expected %d got %zd\n", BUFSIZE, nbytes);
 		}
 		/* Call lseek to get current offset. */
-		printf("Offset is %lld\n", lseek(fd, 0, SEEK_CUR));
+		printf("%s: Offset is %lld\n", argv[0], lseek(fd, 0, SEEK_CUR));
+		sleep(1);
 	}
 	(void)close(fd);
 	exit(0);
