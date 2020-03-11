@@ -11,7 +11,6 @@
 int
 main(int argc, char *argv[]) {
 	char buf[BUFSIZE];
-	char *me;
 	ssize_t nbytes;
 
 	int fd = open("/bin/ksh", O_RDONLY);

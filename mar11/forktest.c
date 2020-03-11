@@ -53,6 +53,8 @@ main(int argc, char *argv[]) {
 		printf("%s: Offset is %lld\n", me, lseek(fd, 0, SEEK_CUR));
 		sleep(1);
 	}
-	(void)close(fd);
+	if (close(fd) != 0) {
+		fprintf(stderr, "%s: Close failed: %s\n", me, strerror(errno));
+	}
 	exit(0);
 }
