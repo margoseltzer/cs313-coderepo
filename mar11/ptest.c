@@ -30,7 +30,6 @@ main(int argc, char *argv[]) {
 		}
 		/* Call lseek to get current offset. */
 		printf("%s: Offset is %lld\n", argv[0], lseek(fd, 0, SEEK_CUR));
-		sleep(1);
 	}
 	(void)close(fd);
 	exit(0);
