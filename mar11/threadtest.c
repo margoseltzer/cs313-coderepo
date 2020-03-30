@@ -1,5 +1,6 @@
 #include <errno.h>
 #include <fcntl.h>
+#include <inttypes.h>
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -37,7 +38,7 @@ threadFunc(void *arg) {
 			fprintf(stderr, "Short read expected %d got %zd\n", BUFSIZE, nbytes);
 		}
 		/* Call lseek to get current offset. */
-		printf("Thread %d: Offset is %ld\n", me, lseek(fd, 0, SEEK_CUR));
+		printf("Thread %d: Offset is %" PRIuMAX "\n", me, (uintmax_t)lseek(fd, 0, SEEK_CUR));
 	}
 	return NULL;
 }

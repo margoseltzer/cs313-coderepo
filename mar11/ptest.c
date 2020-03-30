@@ -1,5 +1,6 @@
 #include <errno.h>
 #include <fcntl.h>
+#include <inttypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -29,7 +30,7 @@ main(int argc, char *argv[]) {
 			fprintf(stderr, "Short read expected %d got %zd\n", BUFSIZE, nbytes);
 		}
 		/* Call lseek to get current offset. */
-		printf("%s: Offset is %ld\n", argv[0], lseek(fd, 0, SEEK_CUR));
+		printf("%s: Offset is %" PRIuMAX "\n", argv[0], (uintmax_t)lseek(fd, 0, SEEK_CUR));
 	}
 	(void)close(fd);
 	exit(0);
