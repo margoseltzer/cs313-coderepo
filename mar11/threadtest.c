@@ -37,7 +37,7 @@ threadFunc(void *arg) {
 			fprintf(stderr, "Short read expected %d got %zd\n", BUFSIZE, nbytes);
 		}
 		/* Call lseek to get current offset. */
-		printf("Thread %d: Offset is %lld\n", me, lseek(fd, 0, SEEK_CUR));
+		printf("Thread %d: Offset is %ld\n", me, lseek(fd, 0, SEEK_CUR));
 	}
 	return NULL;
 }

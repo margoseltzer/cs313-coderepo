@@ -50,7 +50,7 @@ main(int argc, char *argv[]) {
 			fprintf(stderr, "%s: Short read expected %d got %zd\n", me, BUFSIZE, nbytes);
 		}
 		/* Call lseek to get current offset. */
-		printf("%s: Offset is %lld\n", me, lseek(fd, 0, SEEK_CUR));
+		printf("%s: Offset is %ld\n", me, lseek(fd, 0, SEEK_CUR));
 		sleep(1);
 	}
 	if (close(fd) != 0) {

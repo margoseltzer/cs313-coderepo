@@ -3,6 +3,7 @@ PROGRAMS = ptest fdtest fdtest2 forktest threadtest duptest
 INCLUDES = -I.
 
 CFLAGS = -O3 -Wall $(INCLUDES)
+LDFLAGS = -lpthread
 
 all: $(PROGRAMS)
 

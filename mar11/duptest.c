@@ -36,7 +36,7 @@ main(int argc, char *argv[]) {
 			fprintf(stderr, "Short read of fd1 expected %d got %zd\n", BUFSIZE, nbytes);
 		}
 		/* Call lseek to get current offset. */
-		printf("Offset of fd1 is %lld\n", lseek(fd1, 0, SEEK_CUR));
+		printf("Offset of fd1 is %ld\n", lseek(fd1, 0, SEEK_CUR));
 
 		nbytes = read(fd2, buf, BUFSIZE);
 		if (nbytes < 0) {
@@ -47,7 +47,7 @@ main(int argc, char *argv[]) {
 			fprintf(stderr, "Short read of fd2 expected %d got %zd\n", BUFSIZE, nbytes);
 		}
 		/* Call lseek to get current offset. */
-		printf("Offset of fd2 is %lld\n", lseek(fd2, 0, SEEK_CUR));
+		printf("Offset of fd2 is %ld\n", lseek(fd2, 0, SEEK_CUR));
 	}
 
 	(void)close(fd1);
